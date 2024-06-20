@@ -23,7 +23,6 @@ const useForm = () => {
                 throw new Error(errorResponse.msg);
             }
             const data = await res.json();
-            console.log(data);
             setTalks(data);
         } catch (error) {
             alert(error);
