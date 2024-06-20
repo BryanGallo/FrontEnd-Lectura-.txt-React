@@ -7,7 +7,20 @@ const useForm = () => {
         afternoonTopic: [],
     });
 
-    return { file, setFile, talks };
+    const sendFile = async (file) => {
+        const formData = new FormData();
+        formData.append("file", file);
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/upload`, {
+            method: "POST",
+            body: formData,
+        });
+        console.log(res);
+        const data = await res.json();
+        console.log(data);
+        setTalks(data);
+    };
+
+    return { file, setFile, talks, sendFile };
 };
 
 export default useForm;

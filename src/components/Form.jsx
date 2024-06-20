@@ -1,6 +1,6 @@
 import React from "react";
 
-const Form = ({ file, setFile, readFile }) => {
+const Form = ({ file, setFile, sendFile }) => {
     const handleUpload = (e) => {
         setFile(e.target.files[0]);
     };
@@ -11,7 +11,7 @@ const Form = ({ file, setFile, readFile }) => {
             alert("Carga un archivo");
             return;
         }
-        readFile(file);
+        sendFile(file);
     };
 
     return (
